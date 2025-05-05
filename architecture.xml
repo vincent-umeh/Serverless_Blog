@@ -1,0 +1,315 @@
+<mxfile host="app.diagrams.net" modified="2023-11-01T12:00:00.000Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36" etag="abc123" version="15.5.0" type="device">
+  <diagram id="serverless-blog-architecture" name="Serverless Blog Platform Architecture">
+    <mxGraphModel dx="1422" dy="798" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        
+        <!-- AWS Cloud Border -->
+        <mxCell id="aws_cloud" value="AWS Cloud" style="points=[[0,0],[0.25,0],[0.5,0],[0.75,0],[1,0],[1,0.25],[1,0.5],[1,0.75],[1,1],[0.75,1],[0.5,1],[0.25,1],[0,1],[0,0.75],[0,0.5],[0,0.25]];outlineConnect=0;gradientColor=none;html=1;whiteSpace=wrap;fontSize=12;fontStyle=0;container=1;pointerEvents=0;collapsible=0;recursiveResize=0;shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_aws_cloud;strokeColor=#232F3E;fillColor=none;verticalAlign=top;align=left;spacingLeft=30;fontColor=#232F3E;dashed=0;" vertex="1" parent="1">
+          <mxGeometry x="200" y="120" width="800" height="650" as="geometry" />
+        </mxCell>
+        
+        <!-- User -->
+        <mxCell id="user" value="User" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="90" y="380" width="30" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- CloudFront -->
+        <mxCell id="cloudfront" value="CloudFront&#xa;Distribution" style="outlineConnect=0;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;shape=mxgraph.aws3.cloudfront;fillColor=#F58536;gradientColor=none;" vertex="1" parent="1">
+          <mxGeometry x="240" y="375" width="76.5" height="93" as="geometry" />
+        </mxCell>
+        
+        <!-- S3 Website Bucket -->
+        <mxCell id="s3_website" value="S3 Website&#xa;Bucket" style="outlineConnect=0;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;shape=mxgraph.aws3.s3;fillColor=#E05243;gradientColor=none;" vertex="1" parent="1">
+          <mxGeometry x="400" y="260" width="76.5" height="93" as="geometry" />
+        </mxCell>
+        
+        <!-- S3 Assets Bucket -->
+        <mxCell id="s3_assets" value="S3 Assets&#xa;Bucket" style="outlineConnect=0;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;shape=mxgraph.aws3.s3;fillColor=#E05243;gradientColor=none;" vertex="1" parent="1">
+          <mxGeometry x="400" y="480" width="76.5" height="93" as="geometry" />
+        </mxCell>
+        
+        <!-- API Gateway -->
+        <mxCell id="api_gateway" value="API Gateway" style="outlineConnect=0;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;shape=mxgraph.aws3.api_gateway;fillColor=#D9A741;gradientColor=none;" vertex="1" parent="1">
+          <mxGeometry x="560" y="375" width="76.5" height="93" as="geometry" />
+        </mxCell>
+        
+        <!-- Lambda Functions -->
+        <mxCell id="lambda_get_posts" value="Lambda&#xa;get-posts" style="outlineConnect=0;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;shape=mxgraph.aws3.lambda_function;fillColor=#F58534;gradientColor=none;" vertex="1" parent="1">
+          <mxGeometry x="720" y="260" width="69" height="72" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="lambda_get_post" value="Lambda&#xa;get-post" style="outlineConnect=0;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;shape=mxgraph.aws3.lambda_function;fillColor=#F58534;gradientColor=none;" vertex="1" parent="1">
+          <mxGeometry x="720" y="350" width="69" height="72" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="lambda_create_post" value="Lambda&#xa;create-post" style="outlineConnect=0;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;shape=mxgraph.aws3.lambda_function;fillColor=#F58534;gradientColor=none;" vertex="1" parent="1">
+          <mxGeometry x="720" y="440" width="69" height="72" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="lambda_update_post" value="Lambda&#xa;update-post" style="outlineConnect=0;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;shape=mxgraph.aws3.lambda_function;fillColor=#F58534;gradientColor=none;" vertex="1" parent="1">
+          <mxGeometry x="720" y="530" width="69" height="72" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="lambda_delete_post" value="Lambda&#xa;delete-post" style="outlineConnect=0;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;shape=mxgraph.aws3.lambda_function;fillColor=#F58534;gradientColor=none;" vertex="1" parent="1">
+          <mxGeometry x="720" y="620" width="69" height="72" as="geometry" />
+        </mxCell>
+        
+        <!-- DynamoDB -->
+        <mxCell id="dynamodb" value="DynamoDB&#xa;BlogPosts" style="outlineConnect=0;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;shape=mxgraph.aws3.dynamo_db;fillColor=#2E73B8;gradientColor=none;" vertex="1" parent="1">
+          <mxGeometry x="880" y="375" width="72" height="81" as="geometry" />
+        </mxCell>
+        
+        <!-- IAM Role -->
+        <mxCell id="iam_role" value="IAM Role" style="outlineConnect=0;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;shape=mxgraph.aws3.role;fillColor=#759C3E;gradientColor=none;" vertex="1" parent="1">
+          <mxGeometry x="880" y="530" width="74.5" height="79" as="geometry" />
+        </mxCell>
+        
+        <!-- Connections -->
+        <!-- User to CloudFront -->
+        <mxCell id="user_to_cloudfront" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="user" target="cloudfront">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="130" y="410" as="sourcePoint" />
+            <mxPoint x="230" y="410" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- CloudFront to S3 Website -->
+        <mxCell id="cloudfront_to_s3_website" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="cloudfront" target="s3_website">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="320" y="390" as="sourcePoint" />
+            <mxPoint x="390" y="310" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="350" y="398" />
+              <mxPoint x="350" y="307" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- CloudFront to S3 Assets -->
+        <mxCell id="cloudfront_to_s3_assets" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="cloudfront" target="s3_assets">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="320" y="445" as="sourcePoint" />
+            <mxPoint x="390" y="530" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="350" y="445" />
+              <mxPoint x="350" y="527" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- CloudFront to API Gateway -->
+        <mxCell id="cloudfront_to_api_gateway" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="cloudfront" target="api_gateway">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="320" y="421.5" as="sourcePoint" />
+            <mxPoint x="550" y="421.5" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- API Gateway to Lambda Functions -->
+        <mxCell id="api_gateway_to_lambda_get_posts" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="api_gateway" target="lambda_get_posts">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="640" y="398" as="sourcePoint" />
+            <mxPoint x="710" y="296" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="670" y="398" />
+              <mxPoint x="670" y="296" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="api_gateway_to_lambda_get_post" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.35;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="api_gateway" target="lambda_get_post">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="640" y="408" as="sourcePoint" />
+            <mxPoint x="710" y="386" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="670" y="408" />
+              <mxPoint x="670" y="386" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="api_gateway_to_lambda_create_post" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="api_gateway" target="lambda_create_post">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="640" y="421.5" as="sourcePoint" />
+            <mxPoint x="710" y="476" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="670" y="421" />
+              <mxPoint x="670" y="476" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="api_gateway_to_lambda_update_post" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.65;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="api_gateway" target="lambda_update_post">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="640" y="435" as="sourcePoint" />
+            <mxPoint x="710" y="566" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="670" y="435" />
+              <mxPoint x="670" y="566" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="api_gateway_to_lambda_delete_post" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="api_gateway" target="lambda_delete_post">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="640" y="445" as="sourcePoint" />
+            <mxPoint x="710" y="656" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="670" y="445" />
+              <mxPoint x="670" y="656" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- Lambda to DynamoDB -->
+        <mxCell id="lambda_get_posts_to_dynamodb" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.25;entryDx=0;entryDy=0;" edge="1" parent="1" source="lambda_get_posts" target="dynamodb">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="800" y="296" as="sourcePoint" />
+            <mxPoint x="870" y="395" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="840" y="296" />
+              <mxPoint x="840" y="395" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="lambda_get_post_to_dynamodb" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="lambda_get_post" target="dynamodb">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="800" y="386" as="sourcePoint" />
+            <mxPoint x="870" y="415.5" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="lambda_create_post_to_dynamodb" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.75;entryDx=0;entryDy=0;" edge="1" parent="1" source="lambda_create_post" target="dynamodb">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="800" y="476" as="sourcePoint" />
+            <mxPoint x="870" y="436" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="840" y="476" />
+              <mxPoint x="840" y="436" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="lambda_update_post_to_dynamodb" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="lambda_update_post" target="dynamodb">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="800" y="548" as="sourcePoint" />
+            <mxPoint x="916" y="470" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="916" y="548" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="lambda_delete_post_to_dynamodb" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryX=0.75;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="lambda_delete_post" target="dynamodb">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="800" y="638" as="sourcePoint" />
+            <mxPoint x="934" y="470" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="934" y="638" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- Lambda to S3 Assets -->
+        <mxCell id="lambda_create_post_to_s3_assets" value="" style="endArrow=classic;html=1;exitX=0;exitY=0.75;exitDx=0;exitDy=0;entryX=1;entryY=0.25;entryDx=0;entryDy=0;" edge="1" parent="1" source="lambda_create_post" target="s3_assets">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="710" y="494" as="sourcePoint" />
+            <mxPoint x="490" y="503" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="600" y="494" />
+              <mxPoint x="600" y="503" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="lambda_update_post_to_s3_assets" value="" style="endArrow=classic;html=1;exitX=0;exitY=0.75;exitDx=0;exitDy=0;entryX=1;entryY=0.75;entryDx=0;entryDy=0;" edge="1" parent="1" source="lambda_update_post" target="s3_assets">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="710" y="584" as="sourcePoint" />
+            <mxPoint x="490" y="550" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="600" y="584" />
+              <mxPoint x="600" y="550" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- IAM Role to Lambda Functions -->
+        <mxCell id="iam_role_to_lambda_get_posts" value="" style="endArrow=classic;html=1;exitX=0;exitY=0.25;exitDx=0;exitDy=0;entryX=1;entryY=0.75;entryDx=0;entryDy=0;dashed=1;" edge="1" parent="1" source="iam_role" target="lambda_get_posts">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="870" y="550" as="sourcePoint" />
+            <mxPoint x="800" y="310" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="850" y="550" />
+              <mxPoint x="850" y="314" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="iam_role_to_lambda_get_post" value="" style="endArrow=classic;html=1;exitX=0;exitY=0.3;exitDx=0;exitDy=0;entryX=1;entryY=0.75;entryDx=0;entryDy=0;dashed=1;" edge="1" parent="1" source="iam_role" target="lambda_get_post">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="870" y="554" as="sourcePoint" />
+            <mxPoint x="800" y="404" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="840" y="554" />
+              <mxPoint x="840" y="404" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="iam_role_to_lambda_create_post" value="" style="endArrow=classic;html=1;exitX=0;exitY=0.4;exitDx=0;exitDy=0;entryX=1;entryY=0.75;entryDx=0;entryDy=0;dashed=1;" edge="1" parent="1" source="iam_role" target="lambda_create_post">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="870" y="562" as="sourcePoint" />
+            <mxPoint x="800" y="494" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="830" y="562" />
+              <mxPoint x="830" y="494" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="iam_role_to_lambda_update_post" value="" style="endArrow=classic;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;dashed=1;" edge="1" parent="1" source="iam_role" target="lambda_update_post">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="870" y="570" as="sourcePoint" />
+            <mxPoint x="800" y="566" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="iam_role_to_lambda_delete_post" value="" style="endArrow=classic;html=1;exitX=0;exitY=0.75;exitDx=0;exitDy=0;entryX=1;entryY=0.25;entryDx=0;entryDy=0;dashed=1;" edge="1" parent="1" source="iam_role" target="lambda_delete_post">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="870" y="590" as="sourcePoint" />
+            <mxPoint x="800" y="638" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="830" y="590" />
+              <mxPoint x="830" y="638" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- Title -->
+        <mxCell id="title" value="Serverless Blog Platform Architecture" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=24;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="350" y="40" width="400" height="40" as="geometry" />
+        </mxCell>
+        
+        <!-- Legend -->
+        <mxCell id="legend" value="Legend" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" vertex="1" parent="1">
+          <mxGeometry x="40" y="120" width="140" height="104" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="legend_solid" value="Solid Line: Data Flow" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="legend">
+          <mxGeometry y="26" width="140" height="26" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="legend_dashed" value="Dashed Line: Permissions" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="legend">
+          <mxGeometry y="52" width="140" height="26" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="legend_note" value="API Gateway routes to Lambda" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="legend">
+          <mxGeometry y="78" width="140" height="26" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

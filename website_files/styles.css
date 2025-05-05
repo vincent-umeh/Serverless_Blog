@@ -1,0 +1,222 @@
+/* Base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f8f9fa;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* Header */
+header {
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    font-size: 1.8rem;
+    color: #0066cc;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 1.5rem;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+    color: #0066cc;
+}
+
+/* Main content */
+main {
+    padding: 2rem 0;
+    min-height: calc(100vh - 140px);
+}
+
+.blog-header {
+    text-align: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.blog-header h2 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    color: #0066cc;
+}
+
+/* Posts */
+.post-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.post-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.post-image {
+    height: 200px;
+    background-color: #e9ecef;
+    background-size: cover;
+    background-position: center;
+}
+
+.post-content {
+    padding: 1.5rem;
+}
+
+.post-content h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.post-content h3 a {
+    color: #333;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.post-content h3 a:hover {
+    color: #0066cc;
+}
+
+.post-meta {
+    font-size: 0.9rem;
+    color: #6c757d;
+    margin-bottom: 1rem;
+}
+
+.post-excerpt {
+    margin-bottom: 1rem;
+}
+
+.read-more {
+    display: inline-block;
+    color: #0066cc;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+/* Single post page */
+.post-header {
+    margin-bottom: 2rem;
+}
+
+.post-header h2 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.post-content p,
+.post-content ul,
+.post-content ol {
+    margin-bottom: 1.5rem;
+}
+
+.post-content h3,
+.post-content h4 {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+/* Pagination */
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+#load-more {
+    background-color: #0066cc;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+#load-more:hover {
+    background-color: #0056b3;
+}
+
+/* Loading */
+.loading {
+    text-align: center;
+    padding: 2rem;
+    color: #6c757d;
+}
+
+/* Footer */
+footer {
+    background-color: #fff;
+    padding: 1.5rem 0;
+    text-align: center;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+}
+
+footer p {
+    color: #6c757d;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    header .container {
+        flex-direction: column;
+    }
+    
+    nav ul {
+        margin-top: 1rem;
+    }
+    
+    nav ul li {
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+    
+    .post-image {
+        height: 150px;
+    }
+}

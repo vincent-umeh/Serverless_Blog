@@ -1,0 +1,64 @@
+name: 'Update Website Content'
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'website_files/**'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  AWS_REGION: 'us-east-1'
+
+jobs:
+  deploy-website:
+    name: 'Deploy Website Changes'
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v2
+        with:
+          terraform_version: 1.5.0
+
+      - name: Terraform Init
+        run: terraform init
+
+      - name: Get S3 Bucket Name and CloudFront ID
+        id: get-resources
+        run: |
+          WEBSITE_BUCKET=$(terraform output -raw website_bucket_name)
+          CLOUDFRONT_ID=$(terraform output -raw cloudfront_distribution_id)
+          echo "website_bucket=$WEBSITE_BUCKET" >> $GITHUB_OUTPUT
+          echo "cloudfront_id=$CLOUDFRONT_ID" >> $GITHUB_OUTPUT
+
+      - name: Update app.js with API URL
+        run: |
+          API_URL=$(terraform output -raw api_gateway_url)
+          sed -i "s|const config = {\n    apiUrl: '/api'|const config = {\n    apiUrl: '$API_URL'|" website_files/app.js
+
+      - name: Upload Website Files
+        run: |
+          aws s3 sync ./website_files s3://${{ steps.get-resources.outputs.website_bucket }}/ --delete
+
+      - name: Invalidate CloudFront Cache
+        run: |
+          aws cloudfront create-invalidation --distribution-id ${{ steps.get-resources.outputs.cloudfront_id }} --paths "/*"
+
+      - name: Output Website URL
+        run: |
+          echo "Website URL: $(terraform output -raw cloudfront_distribution_domain)"
