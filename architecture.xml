@@ -309,6 +309,11 @@
         <mxCell id="legend_note" value="API Gateway routes to Lambda" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="legend">
           <mxGeometry y="78" width="140" height="26" as="geometry" />
         </mxCell>
+        <!-- Footer with Author Credit -->
+        <mxCell id="footer" value="Created by Vincent Umeh" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=2" vertex="1" parent="1">
+          <mxGeometry x="450" y="790" width="200" height="30" as="geometry" />
+        </mxCell>
+
       </root>
     </mxGraphModel>
   </diagram>
